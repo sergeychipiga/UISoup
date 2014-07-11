@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+# !/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 #    Copyright (c) 2014 Max Beloborodko.
 #
@@ -14,26 +15,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-__author__ = 'f1ashhimself@gmail.com'
+__author__ = 'chipiga86@gmail.com'
 
 
-from platform import system
-
-uisoup = None
+from ..utils import _Utils
 
 
-class TooSaltyUISoupException(Exception):
+class LinUtils(_Utils):
     pass
-
-if system() == 'Windows':
-    from uisoup.win_soup import WinSoup
-    uisoup = WinSoup()
-elif system() == 'Darwin':
-    from uisoup.mac_soup import MacSoup
-    uisoup = MacSoup()
-elif system() == 'Linux':
-    from uisoup.lin_soup import LinSoup
-    uisoup = LinSoup()
-else:
-    raise TooSaltyUISoupException('We are sorry but we don\'t have UISoup '
-                                  'implementation for "%s" OS.' % system())
